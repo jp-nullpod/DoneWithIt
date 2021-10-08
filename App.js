@@ -1,37 +1,38 @@
 import React from 'react';
-import { 
-  StyleSheet, Text, Image, 
-  SafeAreaView, View, Alert, 
-  TouchableOpacity, TouchableHighlight, Button,
-  StatusBar, Platform, Dimensions } from 'react-native';
-
-import { useDimensions } from "@react-native-community/hooks";
+import { SafeAreaView, View } from 'react-native';
 
 export default function App() {
-  const handlePress = () => console.log("element pressed")
-  const containerStyle = { backgroundColor: "white" }
-  console.log(useDimensions())
-
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: 'dodgerblue',
-        width: '100%',
-        height: '30%'
-      }}></View>
+    <SafeAreaView style={{
+      backgroundColor: '#fff',
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      alignContent: "center",
+    }}>
+        <View style={{
+          backgroundColor: 'dodgerblue',
+          width: 100,
+          height: 100,
+        }}>
+        </View>
+        <View style={{
+          backgroundColor: 'gold',
+          width: 100,
+          height: 100,
+          top: 30,
+        }}>
+        </View>
+
+        <View style={{
+          backgroundColor: 'tomato',
+          width: 100,
+          height: 100,
+        }}></View>
 
     </SafeAreaView>
+
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    paddingTop: Platform.OS === 'android'? StatusBar.currentHeight : 0
-  },
-  textstuff: {
-    color: '#000'
-  }
-});
