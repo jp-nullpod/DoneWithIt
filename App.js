@@ -1,12 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Image, SafeAreaView, View, Alert, TouchableOpacity, TouchableHighlight, Button } from 'react-native';
+import { 
+  StyleSheet, Text, Image, 
+  SafeAreaView, View, Alert, 
+  TouchableOpacity, TouchableHighlight, Button,
+  StatusBar, Platform } from 'react-native';
 
 export default function App() {
   const handlePress = () => console.log("element pressed")
+  const containerStyle = { backgroundColor: "white" }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
+       <Button 
+        color="blue" 
+        title="Top Button" 
+        onPress={()=> Alert.alert(
+          "My Title", 
+          "My Message",
+          [{ text: "yes"}, {text: "no"}, {text: "dont know"}]
+          )
+        }/>
       <Text style={styles.textstuff}>
         Hello World! Kirty mah love !😍
       </Text>
@@ -41,7 +54,7 @@ export default function App() {
             }}
           /> 
       </TouchableHighlight>
-      <StatusBar style="auto" />
+
     </SafeAreaView>
   );
 }
@@ -49,9 +62,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Platform.OS === 'android'? StatusBar.currentHeight : 0
   },
   textstuff: {
     color: '#000'
